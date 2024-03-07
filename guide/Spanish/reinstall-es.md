@@ -1,33 +1,33 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutando Windows en el Xiaomi Pad 5
 
-## Reinstallation
-If you don't like your Windows version or you've bricked your Windows install, or anything else, you would probably just reinstall Windows. Thankfully this process is very easy.
+## Reinstalación
+Si no le gusta su versión de Windows o ha bloqueado su instalación de Windows, o cualquier otra cosa, probablemente simplemente reinstale Windows. Afortunadamente este proceso es muy sencillo.
 
 > [!IMPORTANT]
-> Quite obviously, this will erase all of your Windows files. If you'd like to back up any of them, you can do so by mounting Windows using the [WOA Helper](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/woahelper.apk) app and manually copying any files you wish to keep
+> Obviamente, esto borrará todos sus archivos de Windows. Si desea hacer una copia de seguridad de alguno de ellos, puede hacerlo montando Windows usando la aplicación [WOA Helper](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/woahelper.apk) y copiando manualmente cualquier archivo que desee conservar.
 
 
-### Prerequisites
+### Requisitos previos
 
-- ```Existing Windows and boot partitions``` (*If not met, [go back and just pretend this guide never existed](/guide/English/1-partition-en.md)*)
+- ```Windows preexistente y particiones de arranque``` (*Si no se cumple, [regrese y pretenda que esta guía nunca existió](/guide/Spanish/1-partition-es.md)*)
 
 - [```Recovery Image```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/1.0/recovery.img)
 
 - [```Android platform tools```](https://developer.android.com/studio/releases/platform-tools)
 
 
-### Boot recovery to format the Windows and boot partitions
+### Recuperación de arranque para formatear Windows y particiones de arranque
 
 ```cmd
 fastboot boot <recovery.img>
 ```
 
-### Format the partitions
-> If it asks you to run it once again, do so
+### Formatear las particiones
+> Si te pide que lo ejecutes una vez más, hazlo.
 ```cmd
 adb shell format
 ```
-## [Next step: Reinstalling Windows](/guide/English/3-install-en.md#Execute-msc)
+## [Siguiente paso: reinstalar Windows](/guide/Spanish/3-install-es.md#Ejecute-msc)

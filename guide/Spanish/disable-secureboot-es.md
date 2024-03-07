@@ -1,14 +1,14 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutando Windows en el Xiaomi Pad 5
 
-## Disabling secureboot
+## Deshabilitar el arranque seguro
 > [!Important]
-> Follow this guide only if you want to disable secureboot.
+> Siga esta guía sólo si desea desactivar el arranque seguro.
 
-### Prerequisites
-- ```Brain```
+### Requisitos previos
+- ```Cerebro```
 
 - [```Android platform tools```](https://developer.android.com/studio/releases/platform-tools)
 
@@ -16,103 +16,103 @@
 
 - [```UEFI image (Secureboot off)```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-NoSecureboot-v3.img)
 
-## Pros and cons of secureboot
-> By default, secureboot is enabled in this guide
+## Pros y contras del arranque seguro
+> De forma predeterminada, el arranque seguro está habilitado en esta guía.
 
-##### Pros and cons of secureboot
-- √ No watermark on homescreen
-- √ Apps that do not work with Test Mode will work
-- √ You can update big versions (e.g 22h2 to 23h2) in Windows update directly
-- × You cannot update drivers without a PC
+##### Pros y contras del arranque seguro
+- √ Sin marca de agua en la pantalla de inicio
+- √ Las aplicaciones que no funcionan con el modo de prueba funcionarán
+- √ Puede actualizar versiones mayores (por ejemplo, 22h2 a 23h2) directamente en la actualización de Windows
+- × No puedes actualizar los controladores sin una PC
 
-##### Pros and cons of secureboot disabled
-- √ You can update drivers directly from your tablet; no PC is needed
-- × Test mode watermark on homescreen
-- × Some apps/games with anti-cheat software may not work
-- × You cannot update big versions (e.g 22h2 to 23h2) through Windows Update
+##### Pros y contras del arranque seguro deshabilitado
+- √ Puede actualizar los controladores directamente desde su tableta; no se necesita PC
+- × Marca de agua del modo de prueba en la pantalla de inicio
+- × Es posible que algunas aplicaciones/juegos con software antitrampas no funcionen
+- × No puede actualizar versiones mayores (por ejemplo, 22h2 a 23h2) a través de Windows Update
 
-## Disabling secureboot
+## Deshabilitar el arranque seguro
 
-#### Make a backup of your rooted boot image
-> You will need this to return to Android, but you can skip this step if you've already made a backup
+#### Haga una copia de seguridad de su imagen de arranque rooteada
+> Necesitará esto para regresar a Android, pero puede omitir este paso si ya realizó una copia de seguridad.
 
-Use the `Backup Android boot` function in the WOA Helper app, or boot to the modded recovery and run
+Utilice la opción `Backup Android boot` en la aplicación WOA Helper, o inicie la recuperación modificada y ejecute
 ```cmd
 adb shell "dd if=/dev/block/platform/soc/1d84000.ufshc/by-name/boot$(getprop ro.boot.slot_suffix) of=/tmp/rooted_boot.img" && adb pull /tmp/rooted_boot.img
 ```
 
-#### Boot to the recovery
-> Replace <path\to\recovery> with the actual path of the recovery image
+#### Arrancar en modo recuperación
+> Reemplace <ruta\a\recuperación> con la ruta real de la imagen de recuperación
 ```cmd
 fastboot boot <path\to\recovery.img>
 ```
 
-#### Activate mass storage mode
-> Once the Xiaomi Pad 5 has booted into the modded recovery
+#### Activar el modo de almacenamiento masivo
+> Una vez que el Xiaomi Pad 5 se haya iniciado en la recuperación modificada
 ```cmd
 adb shell msc
 ```
 
-#### Start the Windows disk manager
-> Once the Xiaomi Pad 5 is detected as a disk
+#### Inicie el administrador de discos de Windows
+> Una vez detectada la Xiaomi Pad 5 como disco
 ```cmd
 diskpart
 ```
 
-#### Select the esp volume of the tablet
-> Use `list volume` to find it, it's the one named "ESPNABU"
+#### Seleccione el volumen esp de la tableta.
+> Use `list volume` para encontrarlo, es el que se llama "ESPNABU"
 ```diskpart
 select volume <number>
 ```
 
-#### Assign the letter Y
+#### Asigne la letra Y
 ```diskpart
 assign letter y
 ```
 
-#### Exit diskpart
+#### Salir de diskpart
 ```diskpart
 exit
 ```
 
-#### Modify the bootloader files
-> To enable test signing
+#### Modificar los archivos del gestor de arranque
+> Para habilitar la firma de prueba
 ```cmd
 bcdedit /store Y:\EFI\Microsoft\BOOT\BCD /set "{default}" testsigning on
 ```
 
-#### Removing SiPolicy
-> Assuming you are disabling secureboot on an existing install, you need to delete this file or the system will not boot
+#### Eliminando SiPolicy
+> Suponiendo que está deshabilitando el arranque seguro en una instalación existente, debe eliminar este archivo o el sistema no arrancará.
 ```cmd
 del Y:\EFI\Microsoft\Boot\SiPolicy.p7b
 ```
 
-#### Remove the drive letter for ESPNABU
-> If this does not work, ignore it and skip to the next command. This phantom drive will disappear the next time you reboot your PC.
+#### Eliminar la letra de unidad de ESPNABU
+> Si esto no funciona, ignórelo y pase al siguiente comando. Esta unidad fantasma desaparecerá la próxima vez que reinicies tu PC.
 ```cmd
 mountvol y: /d
 ```
 
-#### Reboot to fastboot
+#### Reiniciar modo fastboot
 ```cmd
 adb reboot bootloader
 ```
 
-#### Flashing the UEFI
-> Make sure you use the no secureboot UEFI from this page, replace <path\to\uefi-NoSecureboot-v3.img> with the actual path to the UEFI image
+#### Flasheando la UEFI
+> Asegúrese de utilizar UEFI sin arranque seguro desde esta página, reemplace <path\to\uefi-NoSecureboot-v3.img> con la ruta real a la imagen UEFI
 ```cmd
 fastboot flash boot <path\to\uefi-NoSecureboot-v3.img>
 ```
 
 > [!Important]
-> Make sure to also replace your old UEFI in the UEFI folder in your internal storage of Android, so you don't accidentally flash it the next time you try to switch to Windows from Android
+> Asegúrese también de reemplazar su antiguo UEFI en la carpeta UEFI en su almacenamiento interno de Android, para no actualizarlo accidentalmente la próxima vez que intente cambiar a Windows desde Android.
 
-#### Reboot to Windows
+#### Reiniciar en Windows
 ```cmd
 fastboot reboot
 ```
 
-## Finished!
+## ¡Finalizado!
 
 
 

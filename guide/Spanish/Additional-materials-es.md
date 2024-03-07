@@ -1,46 +1,46 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
-# Useful apps and instructions for Windows on Xiaomi pad 5
+# Aplicaciones e instrucciones útiles para Windows en Xiaomi pad 5
 
-## Disabling USB host mode
+## Desactivar el modo de host USB
 > [!Warning]
-> Unpowered USB devices will stop working
+> Los dispositivos USB sin alimentación dejarán de funcionar
 
-Run [USB Host Control](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/USBHost/USB.Host.Mode.Control.V4.0.vbs) to enable/disable USB host mode, then restart the tablet.
+Ejecute [USB Host Control](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/USBHost/USB.Host.Mode.Control.V4.0.vbs) para habilitar/deshabilitar el modo de host USB y luego reinicie la tableta.
 
-#### Finished!
-
-
-## Disable secureboot
-> If you want to be able to update drivers without a PC
-
-[Guide to disabling secureboot](/guide/English/disable-secureboot-en.md)
-
-#### Finished!
+#### ¡Finalizado!
 
 
-## Install ```Microsoft Office```/```Microsoft 365```
-- Download this [ISO file](https://mega.nz/file/hjAiSL4T#G7kOKpsUFpyL2UW9RQmY2e96urcQW5xZKdc7ciaNOy8) to the tablet
-- Right-click on the iso file and select Mount to open it in explorer
-- Double-click on ```Office Tool Plus.exe``` to start the installation wizard
-- In the window that appears, click `Yes`
-- Wait for the installation to complete
+## Deshabilitar el arranque seguro
+> Si desea poder actualizar los controladores sin una PC
 
-#### Finished!
+[Guía para deshabilitar el arranque seguro](/guide/English/disable-secureboot-es.md)
+
+#### ¡Finalizado!
 
 
-## Activate Windows / Office
-Follow the instructions by Massgravel [here](https://github.com/massgravel/Microsoft-Activation-Scripts)
+## Instalar ```Microsoft Office```/```Microsoft 365```
+- Descargue este [ISO file](https://mega.nz/file/hjAiSL4T#G7kOKpsUFpyL2UW9RQmY2e96urcQW5xZKdc7ciaNOy8) a la tableta
+- Haga clic derecho en el archivo iso y seleccione Montar para abrirlo en el explorador
+- Haga doble clic en ```Office Tool Plus.exe``` para iniciar el asistente de instalación.
+- En la ventana que aparece, haga clic en `Si`
+- Espere a que se complete la instalación.
 
-#### Finished!
+#### ¡Finalizado!
 
 
-## How to use the Flashlight 
- - Download [Flashlight.7z](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/1.0/flashlight_fix.7z) and unzip to any folder
-> Run flashlight.exe to enable the flashlight 
-> Press any key to disable it
+## Activar Windows/Office
+Sigue las instrucciones de Massgravel [Aquí](https://github.com/massgravel/Microsoft-Activation-Scripts)
 
-#### Finished!
+#### ¡Finalizado!
+
+
+## Cómo utilizar la linterna
+ - Descargue [Flashlight.7z](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/1.0/flashlight_fix.7z) y descomprímalo en cualquier carpeta
+> Ejecute flashlight.exe para habilitar la linterna.
+> Presione cualquier tecla para deshabilitarla.
+
+#### ¡Finalizado!
 
 
 

@@ -1,79 +1,79 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
-> [!WARNING]
-> **PLEASE DON'T USE ANY VIDEO GUIDES ON AS THESE ARE USUALLY OUTDATED AND CAN AND PROBABLY WILL BRICK YOUR NABU BY USING THEM!!! IF YOU ABSOLUTELY NEED A VIDEO GUIDE, USE THIS [VIDEO GUIDE](https://youtu.be/BbgTbTGbXYg) BY [ArtoSeVeN](https://www.youtube.com/channel/UCYjwfxlYlJ7Nnzv01oszQvA)**
+# Ejecutar Windows en el Xiaomi Pad 5
+> [!Warning]
+> **¡¡¡POR FAVOR, NO USE NINGUNA GUÍA DE VIDEO, YA QUE ESTÁN GENERALMENTE DESACTUALIZADAS Y PUEDEN Y PROBABLEMENTE BLOQUEARÁN SU NABU AL USARLAS!!! SI NECESITAS UNA GUÍA EN VIDEO, UTILIZA ESTA [VIDEO GUIDE](https://youtu.be/BbgTbTGbXYg) POR [ArtoSeVeN](https://www.youtube.com/channel/UCYjwfxlYlJ7Nnzv01oszQvA)**
 
-## Installation
+## Instalación
 > [!NOTE]
-> It is recommended to open CMD or powershell as an admin now, and then access the platform-tools folder using the `cd C:\path\to\platform-tools` command, replacing the path with the actual path of the folder.
-> Use the same window in the entire guide, do not close it.
+> Se recomienda abrir CMD o PowerShell como administrador ahora y luego acceder a la carpeta de herramientas de la plataforma usando el comando `cd C:\path\to\platform-tools`, rreemplazando la ruta con la ruta real de la carpeta.
+> Utilice la misma ventana en toda la guía, no la cierre.
 
-### Prerequisites
-- ```Brain```
+### Requisitos previos
+- ```Cerebro```
 
-- [```UEFI image```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
+- [```Imagen UEFI```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
   
-- [```ARM Windows esd```](https://worproject.com/esd) (Select - Version:  ```11``` Build:  ```22631.2861``` Architecture:  ```ARM64``` Edition:  ```CLIENT``` Language:  ```select your language```)
+- [```ARM Windows esd```](https://worproject.com/esd) (Seleccione - Versión: ```11``` Build:  ```22631.2861``` Arquitectura:  ```ARM64``` Edición:  ```CLIENT``` Idioma ```selecione su idioma```)
     
 - [```Drivers```](https://github.com/map220v/MiPad5-Drivers/releases/latest)
 
-### Boot back into recovery to start installing Windows
+### Vuelva a iniciar la recuperación para comenzar a instalar Windows
 
 ```cmd
 fastboot boot <recovery.img>
 ```
 
-#### Execute msc 
+#### Ejecute msc
 
-> If it asks you to run it once again, do so
+> Si te pide que lo ejecutes una vez más, hazlo.
 
 ```cmd
 adb shell msc
 ```
-### Assign letters to disks
+### Asignar letras a los discos.
   
 
-#### Start the Windows disk manager
+#### Inicie el administrador de discos de Windows
 
-> Once the Xiaomi Pad 5 is detected as a disk
+> Una vez detectada la Xiaomi Pad 5 como disco
 
 ```cmd
 diskpart
 ```
 
 
-#### Assign `X` to Windows volume
+#### Asignar `X` al volumen de Windows
 
-#### Select the Windows volume of the tablet
-> Use `list volume` to find it, it's the one named "WINNABU"
+#### Seleccione el volumen de Windows de la tableta.
+> Use `list volume` para encontrarlo, es el que se llama "WINNABU".
 
 ```diskpart
 select volume <number>
 ```
 
-#### Assign the letter X
+#### Asigne la letra X
 ```diskpart
 assign letter x
 ```
 
-### Assign `Y` to ESP volume
+### Asignar `Y` al volumen ESP
 
-#### Select the esp volume of the tablet
-> Use `list volume` to find it, it's the one named "ESPNABU"
+#### Seleccione el volumen esp de la tableta.
+> Use `list volume` para encontrarlo, es el que se llama "ESPNABU"
 
 ```diskpart
 select volume <number>
 ```
 
-#### Assign the letter Y
+#### Asigne la letra Y
 
 ```diskpart
 assign letter y
 ```
 
-#### Exit diskpart
+#### Salir de diskpart
 ```diskpart
 exit
 ```
@@ -81,72 +81,72 @@ exit
   
   
 
-### Install
+### Instalar
 
-> Replace `<path\to\install.esd>` with the actual path of install.esd (it may also be named install.wim)
+> Reemplace `<path\to\install.esd>` con la ruta real de install.esd (también puede llamarse install.wim)
 
 ```cmd
 dism /apply-image /ImageFile:<path\to\install.esd> /index:6 /ApplyDir:X:\
 ```
 
-> If you get `Error 87`, check the index of your image with `dism /get-imageinfo /ImageFile:<path\to\install.esd>`, then replace `index:6` with the actual index number of Windows 11 Pro in your image
+> Si obtiene  `Error 87`, verifique el índice de su imagen `dism /get-imageinfo /ImageFile:<path\to\install.esd>`, y luego reemplace `index:6` con el número de índice real de Windows 11 Pro en su imagen.
 
 
-### Install Drivers
+### Instalar controladores
 
-> You can download the Drivers [here](https://github.com/map220v/MiPad5-Drivers/releases/latest)
+> Puede descargar los controladores [Aquí](https://github.com/map220v/MiPad5-Drivers/releases/latest)
 
-> If it says `"Automatic WINNABU detection failed! Enter Drive Letter manually"` type **`X`**
+> Si dijese `"Automatic WINNABU detection failed! Enter Drive Letter manually"` escriba **`X`**
 
 ```cmd
  Open the folder with Drivers and run OfflineUpdater.cmd
 ```
 
-### Create Windows bootloader files for the EFI
-> If an error occurs when copying boot files, check `diskpart` to see if ESPNABU still has letter Y. If it does not, add any other letter (such as K) and replace the Y in the below command with said letter respectively
+### Cree archivos del gestor de arranque de Windows para EFI
+> Si ocurre un error al copiar archivos de arranque, verifique con `diskpart` si ESPNABU todavía tiene la letra Y. Si no es así, agregue cualquier otra letra (como K) y reemplace la Y en el siguiente comando con dicha letra respectivamente.
 ```cmd
 bcdboot X:\Windows /s Y: /f UEFI
 ```
 
-## Remove the drive letter for ESPNABU
-> If this does not work, ignore it and skip to the next command. This phantom drive will disappear the next time you reboot your PC.
+## Eliminar la letra de unidad de ESPNABU
+> Si esto no funciona, ignórelo y pase al siguiente comando. Esta unidad fantasma desaparecerá la próxima vez que reinicies tu PC.
 ```cmd
 mountvol y: /d
 ```
 
 
-## Boot into Windows
+## Arrancar en Windows
 
-### Make a backup of your rooted boot image
+### Haga una copia de seguridad de su imagen de arranque rooteada
 
 ```cmd
 adb shell "dd if=/dev/block/platform/soc/1d84000.ufshc/by-name/boot$(getprop ro.boot.slot_suffix) of=/tmp/rooted_boot.img" && adb pull /tmp/rooted_boot.img
 ```
 
-### Reboot to bootloader 
+### Reinicie al gestor de arranque
 
 ```cmd
 adb reboot bootloader
 ```
 
-### Download and flash the UEFI image
-> Download the [UEFI image](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
+### Descargue y actualice la imagen UEFI
+> Descargue la [Imagen UEFI](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
 
 ```cmd
 fastboot flash boot <path to image>
 ```
 
-## Reboot to Windows
+## Reiniciar en Windows
 ```cmd
 fastboot reboot
 ```
 
 > [!NOTE]
-> On the first Windows boot, it will not see any Wi-Fi networks. Restart your tablet by holding down the power button until it restarts. After the reboot, it will be fixed. If you get a pop-up saying "Could not connect", press retry until it works (usually 5 times)
+> En el primer inicio de Windows, no verá ninguna red Wi-Fi. Reinicie su tableta manteniendo presionado el botón de encendido hasta que se reinicie. Después del reinicio, se solucionará. Si aparece una ventana emergente que dice "No se pudo conectar", presione Reintentar hasta que funcione (generalmente 5 veces).
 
-### Boot back into Android
-After Windows has been set up, press the restart button in Windows (NOT SHUTDOWN), then as it restarts, hold `volume down` + `power`to reboot back to fastboot
-> Use your backup boot image and flash it in fastboot to return to Android
+### Reiniciar en Android
+Después de configurar Windows, presione el botón de reinicio en Windows (NO APAGADO), luego, cuando se reinicie, mantenga presionado `volume down` + `power`para reiniciar de nuevo al modo fastboot.
+> Utilice su imagen de arranque de respaldo y actualícela en fastboot para regresar a Android
 
 ```cmd
 fastboot flash boot rooted_boot.img
@@ -156,4 +156,4 @@ fastboot flash boot rooted_boot.img
 fastboot reboot
 ```
 
-### [Last step: Set up Dualboot](dualboot-en.md)
+### [Último paso: configurar el arranque dual](dualboot-es.md)

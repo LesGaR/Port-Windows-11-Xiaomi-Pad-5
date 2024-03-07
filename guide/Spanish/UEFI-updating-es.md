@@ -1,31 +1,32 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutando Windows en el Xiaomi Pad 5
 
-## UEFI Updating
+## Actualización UEFI
 > [!Warning]
-> If you are updating from the old UEFI (January 15 or before) to UEFI-V3, you also have to update your drivers, which you can do using the [driver updating guide](update-en.md)
+> Si está actualizando desde la UEFI anterior (15 de enero o antes) a UEFI-V3, también debe actualizar sus controladores, lo cual puede hacer usando la [guía de actualización de controladores.](update-es.md)
 
-### Why is this guide needed?
+### ¿Por qué es necesaria esta guía?
 
-Idk, but some people were asking about it 
+No lo sé, pero algunas personas preguntaban al respecto.
 
-### Prerequisites
+### Requisitos previos
 - [```WOA Helper app```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/woahelper.apk)
   
 - [```Latest UEFI```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
 
-## Replace old UEFI with the new one
-> If you haven't yet set up dualboot, follow the [dualboot guide](/guide/English/dualboot-en.md) to set up the WOA Helper properly
-- Boot to Android
-- Open the `UEFI` folder in your internal storage
-- Delete the old UEFI
-- Place the new one inside
+## Reemplace la UEFI antigua por la nueva
+> Si aún no ha configurado el arranque dual, siga la [guía de arranque dual](/guide/English/dualboot-es.md) para configurar WOA Helper correctamente
 
-## Done, switch to Windows and enjoy 
+- Arrancar en Android
+- Abra la carpeta `UEFI` en su almacenamiento interno.
+- Eliminar la antigua UEFI
+- Coloca el nuevo dentro.
+
+## Listo, cambia a Windows y disfruta.
 
 > [!NOTE]
->  If you get a BSOD or Windows can't boot normally, make sure you're using the latest drivers and update them 
+>  Si recibe un BSOD o Windows no puede iniciar normalmente, asegúrese de estar utilizando los controladores más recientes y actualícelos.
 
 
 

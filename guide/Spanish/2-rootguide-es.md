@@ -1,36 +1,36 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutar Windows en el Xiaomi Pad 5
 
-## Get root 
+## Obtener root
 > [!NOTE]
-> **If you already have root just skip this step and go to the next page**
+> **Si ya tienes root, omite este paso y ve a la página siguiente.**
 
-### Prerequisites
-- ```Brain```
+### Requisitos previos
+- ```Cerebro```
   
-- [```Android boot backup```](/guide/English/1-partition-en.md#Make-a-backup-of-your-existing-boot-image) (which you backed up on the first guide page)
+- [```Android boot backup```](/guide/Spanish/1-partition-es.md#Haga-una-copia-de-seguridad-de-su-imagen-de-arranque-existente) (con la copia de seguridad que hizo en la primera página de la guía)
 
 
-## Patch boot 
+## Parchear boot
 
-- Copy the ```normal_boot.img``` file from the ```platform tools``` folder onto the tablet 
+- Copie el archivo ```normal_boot.img``` de la carpeta ```platform tools``` a la tableta
 
-- Download and install the [Magisk app](https://github.com/topjohnwu/Magisk/releases/latest) on the tablet
+- Descargue e instale la [aplicación Magisk ](https://github.com/topjohnwu/Magisk/releases/latest) en la tableta
   
--  Open the Magisk app and click the ```Install``` button. Select ```Select and Patch a File``` option and find the ```normal_boot.img``` file that you copied to the tablet. Click the ```Let's Go``` button and wait for the patching process to complete.
+- Abra la aplicación Magisk y haga clic en el botón  ```Instalar```. Seleccione la opción ```Seleccionar y Parchear Archivo``` y busque el archivo ```normal_boot.img``` que copió en la tableta. Haga clic en el botón ```Let's Go``` y espere a que se complete el proceso de parcheo.
   
-- Copy the ```magisk_patched....img``` file from the ```Downloads``` folder on the tablet to the ```platform tools``` folder on your computer. 
+- Copie el archivo ```magisk_patched....img``` de la carpeta ```Descargas``` de la tableta a la carpeta ```platform tools``` de su computadora.
 
-- Reboot to fastboot
+- Reinicie a fastboot
   
-- Open command prompt in the platform tools folder 
+- Abra el símbolo del sistema en la carpeta de herramientas de la plataforma
 
- ## Flash patched boot 
- > Replace `<magisk_patched.img>` with the actual ```magisk_patched.img``` name/path.
+ ## Flashee el boot parcheado
+ > Reemplace `<magisk_patched.img>` con el ```magisk_patched.img``` nombre/ruta real.
 ```cmd
 fastboot flash boot <magisk_patched.img>
 ```
 
-### [Next step: Installing Windows](/guide/English/3-install-en.md)
+### [Siguiente paso: instalar Windows](/guide/Spanish/3-install-es.md)

@@ -1,64 +1,64 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutando Windows en el Xiaomi Pad 5
 
-## Troubleshooting Issues
+## Solución de problemas
 
-## Charging in Windows does not work
+## La carga en Windows no funciona
 > [!WARNING]
-> Do not use a powered USB hub with host mode enabled, this can potentially break your device. If you use a powered USB hub, please use the [disable USB host mode guide](/guide/English/Additional-materials-en.md#disabling-usb-host-mode)
+> No utilice un concentrador USB con alimentación con el modo host habilitado, ya que esto puede dañar su dispositivo. Si utiliza un concentrador USB con alimentación, utilice la [guía para desactivar el modo de host USB](/guide/Spanish/Additional-materials-es.md#Desactivar-el-modo-de-host-USB)
 
-Charging in Windows only works on specific cables. Cables that have been known to work are the original Poco X3 Pro cable (identified by the additional orange/red pin in the USB-A port), and the Nimaso 100W USB-C to USB-C fast charging cable.
+La carga en Windows solo funciona con cables específicos. Los cables que se sabe que funcionan son el cable original Poco X3 Pro (identificado por el pin naranja/rojo adicional en el puerto USB-A) y el cable de carga rápida Nimaso de 100 W USB-C a USB-C.
 
 
-## Device can boot into Android but not bootloader
+## El dispositivo puede iniciarse en Android pero no en el gestor de arranque
 
-### Prerequisites:
+### Requisitos previos:
 
 - [ADB & Fastboot](https://developer.android.com/studio/releases/platform-tools)
 
 > [!WARNING]
- Probably these steps won't help you because Xiaomi Pad 5 doesn't have a fully working custom recovery to flash it to device. Also like most of newer A/B devices we don't have a TWRP Installer zip etc. and you can't boot existing recovery image because of broken fastboot. If you have already installed AOSP rom, probably it has a preinstalled AOSP recovery and you can boot it directly, so you can follow these steps. If you have unrooted MIUI, this steps won't help you.
+ Probablemente estos pasos no te ayuden porque Xiaomi Pad 5 no tiene una recuperación personalizada completamente funcional para actualizarla en el dispositivo. Además, como la mayoría de los dispositivos A/B más nuevos, no tenemos un zip del instalador TWRP, etc. y no puede iniciar la imagen de recuperación existente debido a un fastboot roto. Si ya instaló la rom AOSP, probablemente tenga una recuperación AOSP preinstalada y pueda iniciarla directamente, por lo que puede seguir estos pasos. Si has desrooteado MIUI, estos pasos no te ayudarán.
 >
-> So please avoid to use disk labels which contains spaces and special characters, and if it is possible just use ESPNABU and WINNABU labels which are tested for a million times. If you brick fastboot with disk labels and you have unrooted MIUI, you have to flash rom via EDL with authorized account and you have to pay for it.
+> Por lo tanto, evite utilizar etiquetas de disco que contengan espacios y caracteres especiales y, si es posible, utilice etiquetas de ESPNABU y WINNABU que se prueban un millón de veces. Si bloquea el fastboot con etiquetas de disco y tiene MIUI desrooteado, debe flashear la ROM a través de EDL con una cuenta autorizada y debe pagar por ello.
 
 
-This is caused by partitions with volume names the bootloader cannot handle, to fix this:
+Esto se debe a particiones con nombres de volúmenes que el gestor de arranque no puede manejar. Para solucionarlo:
 
-- Boot to recovery
+- Arranque en modo recovery
 
-- Connect tablet to PC
+- Conecte tableta al PC
 
-- Open cmd on PC
+- Abrir cmd en la PC
 
-- Run ```adb shell```
+- Ejecute ```adb shell```
 
-- Run ```parted```
+- Ejecute ```parted```
 
-- Run ```print``` to list all partitions
+- Ejecute ```print``` to list all partitions
 
-- Look for partitions that have spaces in the names e.g "Basic Data Partition" and note their volume number
+- Busque particiones que tengan espacios en los nombres, por ejemplo, "Partición de datos básicos" y anote su número de volumen.
 
-- Now run ```rm <vol number>``` e.g ```rm 99```
-
-
-## fsa4480.sys BSOD on boot
-
-- Open driver folder
-
-- Remove the ```components\QC8150\Device\DEVICE.SOC_QC8150.NABU\Drivers\USB``` folder
-
-- Reinstall the driver
-
-- Boot UEFI
-
-- After it boots, readd the driver and reinstall the driver again
+- Ahora ejecute, ```rm <vol number>``` por ejemplo ```rm 99```
 
 
-## Bootloop after switching to Android 
+## fsa4480.sys BSOD en el arranque
 
-- Run fastboot
+- Abrir carpeta de drivers
+
+- Quitar la carpeta ```components\QC8150\Device\DEVICE.SOC_QC8150.NABU\Drivers\USB```
+
+- Reinstale el controlador
+
+- Arrancar UEFI
+
+- Después de que arranque, lea el controlador y reinstálelo nuevamente.
+
+
+## Bootloop después de cambiar a Android
+
+- Ejecute fastboot
 
 - ```fastboot set_active other```
 

@@ -1,39 +1,39 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutar Windows en el Xiaomi Pad 5
 
-## Dualbooting Android and Windows seamlessly
+## Arranque dual de Android y Windows sin problemas
 
-### Prerequisites
-- ```Brain```
-- ```A rooted tablet```
-- ```Windows installed on the tablet```
-- [```UEFI image```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
+### Requisitos previos
+- ```Cerebro```
+- ```Tablet roteada```
+- ```Windows instalado en la tablet```
+- [```Imagen UEFI```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
 - [```WOA Helper app```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/woahelper.apk)
 - [```StA Installer```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/StA_Installer_nabu.exe)
 
-## Setting up the dualboot app
-> This guide assumes you are rooted, if you aren't, please follow the [root guide](2-rootguide-en.md) first
+## Configurar la aplicación de arranque dual
+> Esta guía asume que su tablet esta rooteada; si no lo está, siga primero la [Guía root ](2-rootguide-es.md)
 
-### Setup - Android
+### Configuración - Android
 > [!NOTE]
-> If you are unable to move files to the Windows folder, it means you shut down Windows instead of restarting it. To fix this issue, boot back to Windows and use restart, then as it restarts boot to fastboot and use it to return to Android
+> Si no puede mover archivos a la carpeta de Windows, significa que cerró Windows en lugar de reiniciarlo. Para solucionar este problema, reinicie Windows usando la opción de reiniciar, luego, cuando se reinicie, inicie fastboot y utilícelo para regresar a Android.
 
-- Download and install the [WOA Helper app](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/woahelper.apk), then open it and grant it root access.
-- Download the [UEFI image](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img) and place it inside the folder named `UEFI` in your internal storage, if this folder does not exist, create it.
-- Return to the WOA Helper app and press the `Back up Android boot` button. Select both the `Windows` and `Android` options.
-- Press the `Mount Windows` button, then download and move [StA_Installer_nabu.exe](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/StA_Installer_nabu.exe) to the newly created `Windows` folder in your internal storage.
-- Return to the WOA Helper app and press `Quickboot to Windows`.
+- Descargue e instale la [aplicación WOA Helper](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/woahelper.apk)luego ábrala y concédale acceso de root.
+- Descargue la [UEFI image](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img) y colóquela dentro de la carpeta nombrada `UEFI` en su almacenamiento interno, si esta carpeta no existe, créela.
+- Regrese a la aplicación WOA Helper y presione el botón `Back up Android boot`. Seleccione las opciones `Windows` and `Android`.
+- Presione el botón `Mount Windows`, luego descargue y mueva [StA_Installer_nabu.exe](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/dualboot/StA_Installer_nabu.exe) a la carpeta recién creada  `Windows` en su almacenamiento interno.
+- Regrese a la aplicación WOA Helper y presione `Quickboot to Windows`.
 
-### Setup - Windows
-- Navigate to `C:\StA_Installer_nabu.exe` and run it. If it doesn't work, make sure that any antivirus software is off, as it will probably not let the app run
+### Configuración: Windows
+- Navegue a `C:\StA_Installer_nabu.exe` y ejecútelo. Si no funciona, asegúrese de que el software antivirus esté desactivado, ya que probablemente no permitirá que la aplicación se ejecute.
 
-##### Booting to Android
-  - Run the new shortcut on your desktop (you can also pin it to your start menu / taskbar for ease of access)
+##### Arrancando en Android
+  - Ejecute el nuevo acceso directo en su escritorio (también puede fijarlo en su menú de inicio/barra de tareas para facilitar el acceso)
 
-##### Booting to Windows
-  - Press `Quickboot to Windows` inside the app, or use the newly created toggle in your quick settings panel
+##### Arrancando en Windows
+  - Presione `Quickboot to Windows` dentro de la aplicación o use el acceso directo recién creado en su panel de configuración rápida
   
-## Finished!
+## ¡Finalizado!
 

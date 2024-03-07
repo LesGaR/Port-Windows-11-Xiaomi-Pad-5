@@ -1,11 +1,11 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutando Windows en el Xiaomi Pad 5
 
-## Updating Drivers
+## Actualización de controladores
 
-### Prerequisites
+### Requisitos previos
 
 
 - [```UEFI image```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/UEFI/uefi-v3.img)
@@ -14,72 +14,72 @@
 
 - [```Drivers```](https://github.com/map220v/MiPad5-Drivers/releases/latest)
 
-### Start recovery through the PC with the command
+### Inicie la recuperación a través de la PC con el comando
 
 ```cmd
 fastboot boot <recovery.img>
 ```
 
 
-### Activate mass storage mode
-> If it asks you to run it once again, do so
+### Activar el modo de almacenamiento masivo
+> Si te pide que lo ejecutes una vez más, hazlo.
 ```cmd
 adb shell msc
 ```
 
-### Assign letters to disks
+### Asignar letras a los discos.
 
-#### Start the Windows disk manager
+#### Inicie el administrador de discos de Windows
 
-> Once the Pad 5 is detected as a disk
+> Una vez que el Pad 5 se detecta como un disco
 
 ```cmd
 diskpart
 ```
 
 
-### Assign `X` to Windows volume
+### Asignar `X` al volumen de Windows
 
-#### Select the Windows volume of the tablet
-> Use `list volume` to find it, it's the one named "WINNABU"
+#### Seleccione el volumen de Windows de la tableta.
+> Use `list volume` para encontrarlo, es el que se llama "WINNABU".
 
 ```diskpart
 select volume <number>
 ```
 
-#### Assign the letter X
+#### Asigne la letra X
 ```diskpart
 assign letter x
 ```
 
-### Exit diskpart
+### Salir de diskpart
 ```diskpart
 exit
 ```
 
 
-### Install Drivers
+### Instalar controladores
 
-> You can download Drivers [here](https://github.com/map220v/MiPad5-Drivers/releases/latest)
+> Puedes descargar los controladores [Aquí](https://github.com/map220v/MiPad5-Drivers/releases/latest)
 
-> If it writes `"Automatic WINNABU detection failed! Enter Drive Letter manually"` type **`X`**
+> Si recibe el mensaje `"Automatic WINNABU detection failed! Enter Drive Letter manually"` escriba **`X`**
 ```cmd
- Open the folder with Drivers and run OfflineUpdater.cmd
+ Abra la carpeta Drivers y ejecute OfflineUpdater.cmd
 ```
 
-### Reboot to fastboot to flash UEFI
-> Or if your UEFI has already been flashed, simply reboot with ```adb reboot```
+### Reinicie en fastboot para flashear UEFI
+> O si su UEFI ya ha sido actualizado, simplemente reinicie con ```adb reboot```
 ```cmd
 adb reboot bootloader
 ```
 
-#### Boot with Windows bootable UEFI image
-> Replace <uefi.img> with the actual path of the UEFI image
+#### Arrancar con imagen UEFI de arranque de Windows
+> Reemplace <uefi.img> con la ruta real de la imagen UEFI
 ```cmd
 fastboot flash boot <uefi.img>
 ```
 
-## Finished!
+## ¡Finalizado!!
 
 
 

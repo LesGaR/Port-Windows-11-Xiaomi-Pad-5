@@ -1,72 +1,71 @@
 <img align="right" src="https://raw.githubusercontent.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/main/nabu.png" width="425" alt="Windows 11 Running On A Xiaomi Pad 5">
 
 
-# Running Windows on the Xiaomi Pad 5
+# Ejecutar Windows en el Xiaomi Pad 5
 
-## Installation
+## Instalación
 
 
 
-### Prerequisites
--  ```Brain```
+### Requisitos previos
+-  ```Cerebro```
   
 - [```Recovery Image```](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/download/1.0/recovery.img)
 
 - [```Android platform tools```](https://developer.android.com/studio/releases/platform-tools)
 
-### Notes:
+### Notas:
 > [!NOTE]
-> Don't know how to start? Just unzip the downloaded [```Android platform tools```](https://developer.android.com/studio/releases/platform-tools), for example ```"C:\platform-tools"``` then open ```command prompt``` or `powershell` as administrator and type:
+> ¿No sabes cómo empezar? Simplemente descomprima el archivo descargando [```Android platform tools```](https://developer.android.com/studio/releases/platform-tools), por ejemplo ```"C:\platform-tools"``` luego abra ```command prompt``` o `powershell` como administrador y escriba:
 ```cmd
 cd "path\to\platform-tools"
 ```
-> Replace  `"path\to\platform-tools"` with the actual path of the platform tools folder
+> Reemplace  `"path\to\platform-tools"` con la ruta real de la carpeta de herramientas de la plataforma.
 
 
-> [!Warning]\
-> if you delete any partitions via diskpart later on or now, windows will send a ufs command that gets misinterpreted which erase all your ufs
+> Si elimina alguna partición a través de diskpart más adelante o ahora, Windows enviará un comando ufs que se malinterpreta y borrará todos sus ufs.
 > 
-> All your data will be erased! Backup now if needed.
+> ¡Todos tus datos serán borrados! Haga una copia de seguridad ahora si es necesario.
 > 
-> These commands have been tested.
+> Estos comandos han sido probados.
 > 
-> DO NOT REBOOT YOUR TABLET if you think you made a mistake, ask for help in the [Telegram chat](https://t.me/nabuwoa)
+> NO REINICIES TU TABLETA si crees que cometiste un error, pide ayuda en el [Telegram chat](https://t.me/nabuwoa)
 >
-> **PLEASE DON'T USE OUTDATED VIDEO GUIDES ON YOUTUBE OR ANY OTHER PLATFORM! THESE VIDEOS ARE OUTDATED AND YOU CAN BRICK YOUR DEVICE USING THEM! IF YOU NEED A VIDEO GUIDE, USE THIS [NEW VIDEO GUIDE](https://youtu.be/BbgTbTGbXYg) FROM [ArtoSeVeN](https://www.youtube.com/channel/UCYjwfxlYlJ7Nnzv01oszQvA)**
+> **¡POR FAVOR, NO USE GUÍAS DE VIDEO DESACTUALIZADAS DE YOUTUBE O CUALQUIER OTRA PLATAFORMA! ¡ESTOS VIDEOS ESTÁN DESACTUALIZADOS Y PUEDES BLOQUEAR TU DISPOSITIVO SI LAS USAS! SI NECESITAS UNA VIDEOGUÍA, UTILIZA ESTA [NEW VIDEO GUIDE](https://youtu.be/BbgTbTGbXYg) DE [ArtoSeVeN](https://www.youtube.com/channel/UCYjwfxlYlJ7Nnzv01oszQvA)**
 
 
-### Partitioning your device and backup boot
+### Particionar su dispositivo y realizar una copia de seguridad del arranque
 
-#### Boot recovery through the PC with the command
+#### Recuperación de arranque a través de la PC con el comando
 ```cmd
 fastboot boot <recovery.img>
 ```
-#### Partitioning your device
+#### Particionar su dispositivo
 
-> If it asks you to run it once again, do so
+> Si te pide que lo ejecutes una vez más, hazlo.
 
-> This is **optional**, but you can also **set custom sizes (by default, it splits the storage in half)**
+> Esto es **opcional**, pero también puedes **establecer tamaños personalizados (de forma predeterminada, se divide el almacenamiento a la mitad)**
 
-> To set custom sizes do ```adb shell partition [TARGET WINDOWS SIZE IN GB]```
+> Para establecer tamaños personalizados, haga ```adb shell partition [OBJETIVO WINDOWS ESPACIO EN GB]```
 
-> Make sure you do not add GB at the end, just the number
+> Asegúrate de no agregar GB al final, solo el número
 
 ```cmd
 adb shell partition
 ```
 
-### Make a backup of your existing boot image
+### Haga una copia de seguridad de su imagen de arranque existente
 ```cmd
 adb shell "dd if=/dev/block/platform/soc/1d84000.ufshc/by-name/boot$(getprop ro.boot.slot_suffix) of=/tmp/normal_boot.img" && adb pull /tmp/normal_boot.img
 ```
 
 
-#### Check if Android still starts
-> Reboot to check if Android still works. If it doesn't boot, wipe all data in recovery and try again.
+#### Comprueba si Android todavía se inicia
+> Reinicie para comprobar si Android todavía funciona. Si no arranca, borre todos los datos en recuperación y vuelva a intentarlo.
 
 ```cmd
 adb reboot
 ```
 
 
-### [Next step: Get Root](/guide/English/2-rootguide-en.md)
+### [Siguiente paso: obtener root](/guide/Spanish/2-rootguide-es.md)
